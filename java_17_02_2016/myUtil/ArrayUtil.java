@@ -1,4 +1,5 @@
 package myUtil;
+import java.util.Arrays;
 
 public class ArrayUtil {
     private static void printArrays(int [] numbers){
@@ -28,4 +29,13 @@ public class ArrayUtil {
             reversed[numbers.length-1-i] = numbers[i];
         return reversed;
     }
+    public static int [] slice(int [] array, int from, int to){
+        if(to<0)
+            to = array.length+to;
+        if(from<0)
+            from = array.length+from;
+        int [] result = Arrays.copyOfRange(array,from, to);
+        return result;
+    }   
 }
+
