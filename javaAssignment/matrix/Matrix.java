@@ -36,7 +36,7 @@ public class Matrix {
 	}
 	public Matrix add(Matrix addendMatrix){
 		if(this.row!=addendMatrix.row||this.colomn!=addendMatrix.colomn)
-			return new Matrix(addendMatrix.row,addendMatrix.colomn);
+			return new Matrix(1,1);
 		Matrix result = new Matrix(this.row,this.colomn);
 		for(int i=0; i<this.row; i++)
 			for(int j=0; j<this.colomn; j++)
@@ -45,10 +45,11 @@ public class Matrix {
 	}
 	public Matrix multiplyWith(Matrix multiplicantMatrix){
    		Matrix result = new Matrix(this.row,multiplicantMatrix.colomn);
+   		System.out.println();
    		for (int i=0; i<this.row; i++) {
-   			for (int j=0; j<this.colomn;j++) {
+   			for (int j=0; j<multiplicantMatrix.colomn;j++) {
    				int sum = 0;
-   				for(int l=0; l<multiplicantMatrix.colomn;l++)
+   				for(int l=0; l<multiplicantMatrix.row;l++)
    					sum+=this.matrix[i][l]*multiplicantMatrix.matrix[l][j];
    				result.matrix[i][j] = sum;
    			}
