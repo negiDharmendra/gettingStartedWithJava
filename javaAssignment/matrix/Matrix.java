@@ -42,5 +42,24 @@ public class Matrix {
 			for(int j=0; j<this.colomn; j++)
 				result.matrix[i][j] = this.matrix[i][j]+addendMatrix.matrix[i][j];
 		return result;
-   }
+	}
+	public Matrix multiplyWith(Matrix multiplicantMatrix){
+   		Matrix result = new Matrix(this.row,multiplicantMatrix.colomn);
+   		for (int i=0; i<this.row; i++) {
+   			for (int j=0; j<this.colomn;j++) {
+   				int sum = 0;
+   				for(int l=0; l<multiplicantMatrix.colomn;l++)
+   					sum+=this.matrix[i][l]*multiplicantMatrix.matrix[l][j];
+   				result.matrix[i][j] = sum;
+   			}
+   		}
+   		return result;
+   	}
 }
+
+
+
+
+
+
+

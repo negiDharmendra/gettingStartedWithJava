@@ -63,4 +63,23 @@ public class MatrixTest {
         assertTrue(result.isEqualTo(expected));
     }
 
+    @Test
+    public void multiplyWithShouldReturnTheNewMatrixOfMultiplicationResultOfTheSame(){
+        Matrix fourByFour1 = new Matrix(3,2);
+        int [] values1 = new int[6];
+        for (int i=0;i<values1.length;i++)
+            values1[i] = i+1;
+        fourByFour1.assignedValues(values1);
+
+        Matrix fourByFour2 = new Matrix(2,2);
+        int [] values2 = new int[4];
+        for (int i=0;i<values2.length;i++)
+            values2[i] = i+1;
+        fourByFour2.assignedValues(values2);
+        
+        Matrix result = fourByFour1.multiplyWith(fourByFour2);
+        int[][] expected = {{7,10},{15,22},{23,34}};
+        assertTrue(result.isEqualTo(expected));
+    }
+
 }
